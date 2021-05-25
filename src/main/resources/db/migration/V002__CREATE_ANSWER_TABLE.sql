@@ -1,0 +1,13 @@
+CREATE TABLE answers
+(
+    id           BIGINT NOT NULL,
+    description  TEXT   NOT NULL,
+    operator     BOOLEAN,
+    ticket_id    BIGINT NOT NULL,
+    cdt TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    udt TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    CONSTRAINT ANSWERS_PKEY PRIMARY KEY (id)
+);
+
+ALTER TABLE answers
+    ADD CONSTRAINT fk_answers_ticket_id FOREIGN KEY (ticket_id) REFERENCES tickets (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
